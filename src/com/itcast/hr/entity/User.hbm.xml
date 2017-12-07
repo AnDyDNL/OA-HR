@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.itcast.hr.entity">
+  		<class name="User" table="hr_user">
+  			<id name="id">
+  			<!-- id自增长 -->
+  				<generator class="native"></generator>
+  			</id>
+  			<property name="name" column="name"/>
+  			<property name="loginName" column="loginName"/>
+  			<property name="tel" column="tel"/>
+  			<property name="password" column="password"/>
+  			<property name="description" column="description"/>
+  			<property name="email" column="email"/>
+  			<property name="gender" column="gender"/>
+  		<!--department属性本类与Department类 多对一  -->
+		<many-to-one name="department" class="Department" column="departmentId"></many-to-one>
+  		<!-- roles属性本类与Role类多对多的关系映射 要中间表存放两个外键 -->
+  		<set name="roles" table="hr_user_role">
+  			<!-- 指向当前User的主键 -->
+  			<key column="userId"></key>
+  			<many-to-many class="Role" column="roleId"></many-to-many>
+  		</set>
+  		</class>
+  		
+    </hibernate-mapping>

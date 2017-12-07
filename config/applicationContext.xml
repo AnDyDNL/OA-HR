@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	 http://www.springframework.org/schema/beans/spring-beans.xsd
+     	 http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/tx
+     	 http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- 导入jdbc配置参数 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 配置SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 指定hibernate配置文件路径 -->
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+		<!-- 配置c3p0数据库连接池 -->
+		<property name="dataSource">
+			<bean class="com.mchange.v2.c3p0.ComboPooledDataSource">
+				<property name="driverClass" value="${driverClass}"></property>
+				<!-- 配置url -->
+				<property name="jdbcUrl" value="${jdbcUrl}"></property>
+				<property name="user" value="${user}"></property>
+				<property name="password" value="${password}"></property>
+				<property name="initialPoolSize" value="3"></property>
+				<!-- 自动增长 -->
+				<property name="acquireIncrement" value="2"></property>
+				<property name="maxPoolSize" value="5"></property>
+				<!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+				<property name="maxIdleTime" value="1800"></property>
+			</bean>
+			<!-- 加载驱动类 -->
+		</property>
+	</bean>
+
+	<!-- 自动扫描与装配bean -->
+	<context:component-scan base-package="com.itcast.hr"></context:component-scan>
+	<bean id="sSTest" class="com.itcast.hr.test.SSTest"></bean>
+	<!-- 声明事务管理 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 声明注解驱动 -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+	<!-- 事务加强 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="*" read-only="false"/>
+		</tx:attributes>
+	</tx:advice>
+</beans>

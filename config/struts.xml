@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 扩展名配置为action -->
+	<constant name="struts.action.extension" value="action"></constant>
+	<!-- 主体配置为simple -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 岗位管理 -->
+	<package name="Role" extends="struts-default">
+		<action name="role_*" class="roleAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/Role/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/Role/saveUI.jsp</result>
+			<!-- 重定向到role_list Action -->
+			<result name="toList" type="redirectAction" >role_list</result>
+		</action>
+	</package>
+	<!-- 部门管理 -->
+	<package name="Department" extends="struts-default">
+	<action name="department_*" class="departmentAction" method="{1}">
+		<result name="list">/WEB-INF/jsp/Department/list.jsp</result>
+		<result name="saveUI">/WEB-INF/jsp/Department/saveUI.jsp</result>
+		<!-- 重定向到department_list Action -->
+		<result name="toList" type="redirectAction" >department_list</result>
+	</action>
+	</package>
+</struts>

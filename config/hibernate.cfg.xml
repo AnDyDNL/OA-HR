@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	<hibernate-configuration>
+<session-factory>
+	<!--******【数据库连接配置】 数据库连接配置****** -->
+	<!--方言 不同数据库对应不同方言 -->
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQL5InnoDBDialect
+	</property>
+	<!-- 打印sql语句 -->
+<!-- 	<property name="hibernate.show_sql">true</property> -->
+	<!-- 自动建表 -->
+	<property name="hbm2ddl.auto">update</property>
+	<!-- 加载映射文件 -->
+	<mapping resource="com/itcast/hr/entity/Role.hbm.xml" />
+	<mapping resource="com/itcast/hr/entity/Department.hbm.xml" />
+	<mapping resource="com/itcast/hr/entity/User.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

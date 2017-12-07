@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.itcast.hr.entity">
+  		<class name="Role" table="hr_role">
+  			<id name="id">
+  			<!-- id自增长 -->
+  				<generator class="native"></generator>
+  			</id>
+  			<property name="name" column="name"/>
+  			<property name="description" column="description"/>
+  			<!-- users属性本类与User的多对多 -->
+  			<set name="users" table="hr_user_role">
+  				<key column="roleId"></key>
+  				<many-to-many class="User" column="userId"></many-to-many>
+  			</set>
+  		</class>
+    </hibernate-mapping>
