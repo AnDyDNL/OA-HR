@@ -45,13 +45,13 @@
 	<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 声明注解驱动 -->
-	<tx:annotation-driven transaction-manager="txManager"/>
+	<tx:annotation-driven transaction-manager="txManager" />
 	<!-- 事务加强 -->
-	<tx:advice id="txAdvice" transaction-manager="txManager">
-		<tx:attributes>
-			<tx:method name="get*" read-only="true"/>
-			<tx:method name="find*" read-only="true"/>
-			<tx:method name="*" read-only="false"/>
-		</tx:attributes>
-	</tx:advice>
+<!-- 	<tx:advice id="txAdvice" transaction-manager="txManager"> -->
+<!-- 		<tx:attributes> -->
+<!-- 			<tx:method name="get*" read-only="true"/> -->
+<!-- 			<tx:method name="find*" read-only="true"/> -->
+<!-- 			<tx:method name="*" read-only="false"/> -->
+<!-- 		</tx:attributes> -->
+<!-- 	</tx:advice> -->
 </beans>

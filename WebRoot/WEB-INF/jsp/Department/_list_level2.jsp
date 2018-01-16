@@ -1,3 +1,5 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/public/commons.jsp" %>
 <HTML>
 <HEAD>
     <TITLE>部门列表</TITLE>

@@ -1,6 +1,8 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/public/commons.jsp" %>
 <html>
 <head>
-<title>²¿ÃÅÐÅÏ¢</title>
+<title>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk" />
 <script language="javascript" src="../js/jquery.js"></script>
 <script language="javascript" src="../js/pageCommon.js"></script>
@@ -17,45 +19,45 @@
     <div id=Title_bar_Head>
         <div id=Title_Head></div>
         <div id=Title>
-            <!--Ò³Ãæ±êÌâ-->
-            <img border="0" width="13" height="13" src="../style/images/title_arrow.gif" /> ²¿ÃÅÐÅÏ¢ÏÔÊ¾ </div>
+            <!--Ò³ï¿½ï¿½ï¿½ï¿½ï¿½-->
+            <img border="0" width="13" height="13" src="../style/images/title_arrow.gif" /> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê¾ </div>
         <div id=Title_End> </div>
     </div>
     <div id=Title_bar_bg_up>
         <div id=Title_bar_bg> </div>
     </div>
-    <!--Ïà¹Ø²Ù×÷ÁÐ±í-->
+    <!--ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½Ð±ï¿½-->
     <div id=Title_bar_Tail>
         <div id=Title_FuncBar>
             <ul  style="margin:0;">
                 <li class=line ></li>
                 <li class=title>
-                    <div class="Btn"> <a href="javascript: history.go(-1)">·µ»Ø</a> </div>
+                    <div class="Btn"> <a href="javascript: history.go(-1)">ï¿½ï¿½ï¿½ï¿½</a> </div>
                 </li>
                 <li class=line></li>
             </ul>
         </div>
     </div>
 </div>
-<!--ÏÔÊ¾±íµ¥ÄÚÈÝ-->
+<!--ï¿½ï¿½Ê¾ï¿½?ï¿½ï¿½ï¿½ï¿½-->
 <div id=MainArea>
     <center>
             <div class=ItemBlock_Title1>
-                <!--ÐÅÏ¢ËµÃ÷
-                <img border="0" width="4" height="7" src="../style/blue/images/item_point.gif" /> ²¿ÃÅÐÅÏ¢--></div>
+                <!--ï¿½ï¿½Ï¢Ëµï¿½ï¿½
+                <img border="0" width="4" height="7" src="../style/blue/images/item_point.gif" /> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢--></div>
             <div class=ItemBlockBorder>
                 <div class=ItemBlock>
                     <table border=0 cellpadding=0 cellspacing=0 width=80% style="margin-left: 50px;">
                         <tr height=25>
-                            <td width=100 height=22>ÉÏ¼¶²¿ÃÅ</td>
-                            <td><input type="text" class="InputStyle" readonly="true" value="×Ü¾­ÀíÊÒ"/></td>
+                            <td width=100 height=22>ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+                            <td><input type="text" class="InputStyle" readonly="true" value="ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½ï¿½"/></td>
                         </tr>
                         <tr height=25>
-                            <td width=100 height=22>²¿ÃÅÃû³Æ</td>
-                            <td><input type="text" class="InputStyle" readonly="true" value="ÊÐ³¡²¿"/></td>
+                            <td width=100 height=22>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
+                            <td><input type="text" class="InputStyle" readonly="true" value="ï¿½Ð³ï¿½ï¿½ï¿½"/></td>
                         </tr>
                         <tr>
-                            <td>Ö°ÄÜËµÃ÷</td>
+                            <td>Ö°ï¿½ï¿½Ëµï¿½ï¿½</td>
                             <td><textarea class="TextareaStyle" readonly="true">xxxxxxxx</textarea></td>
                         </tr>
                     </table>
@@ -66,7 +68,7 @@
                     <tr>
                         <td><div onClick="history.go(-1);" class="FuncBtn">
                                 <div class=FuncBtnHead></div>
-                                <div class=FuncBtnMemo>·µ»Ø</div>
+                                <div class=FuncBtnMemo>ï¿½ï¿½ï¿½ï¿½</div>
                                 <div class=FuncBtnTail></div>
                             </div></td>
                     </tr>

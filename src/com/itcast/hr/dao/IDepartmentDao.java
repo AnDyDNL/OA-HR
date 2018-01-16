@@ -1,10 +1,8 @@
 package com.itcast.hr.dao;
 import java.util.List;
-
-import com.itcast.hr.basedao.IBaseDao;
+import com.itcast.hr.basedao.DaoSupport;
 import com.itcast.hr.entity.Department;
-
-public interface IDepartmentDao extends IBaseDao<Department> {
+public interface IDepartmentDao extends DaoSupport<Department> {
 	/**
 	 * 查询顶级部门
 	 * @return

@@ -1,14 +1,17 @@
 package com.itcast.hr.dao.imp;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Controller;
-import com.itcast.hr.basedao.imp.BaseDaoImp;
+
+import com.itcast.hr.basedao.imp.DaoSupportImp;
 import com.itcast.hr.dao.IDepartmentDao;
 import com.itcast.hr.entity.Department;
-@Controller("iDepartmentDao")
+@Controller("DepartmentDao")
 @SuppressWarnings("unchecked")
-public class DepartmentDaoImp extends BaseDaoImp<Department> implements IDepartmentDao{
+public class DepartmentDaoImp extends DaoSupportImp<Department> implements IDepartmentDao{
 	@Resource
 	private SessionFactory sessionFactory;
 	/**

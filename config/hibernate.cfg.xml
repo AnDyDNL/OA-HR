@@ -9,7 +9,7 @@
 		org.hibernate.dialect.MySQL5InnoDBDialect
 	</property>
 	<!-- 打印sql语句 -->
-<!-- 	<property name="hibernate.show_sql">true</property> -->
+	<property name="hibernate.show_sql">true</property>
 	<!-- 自动建表 -->
 	<property name="hbm2ddl.auto">update</property>
 	<!-- 加载映射文件 -->

@@ -1,15 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ include file="/WEB-INF/jsp/public/commons.jsp" %>
 <html>
 <head>
     <title>HR-部门列表</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script language="javascript" src="${pageContext.request.contextPath}/script/jquery.js"></script>
-    <script language="javascript" src="${pageContext.request.contextPath}/script/pageCommon.js" charset="utf-8"></script>
-    <script language="javascript" src="${pageContext.request.contextPath}/script/PageUtils.js" charset="utf-8"></script>
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/pageCommon.css" />
-    <script type="text/javascript">
-    </script>
 </head>
 <body>
 <div id="Title_bar">
@@ -23,7 +16,7 @@
 </div>
 
 <div id="MainArea">
-    <table cellspacing="0" cellpadding="0" class="TableStyle">
+    <table cellspacing="0" cellpadding="0" class="table">
         <!-- 表头-->
         <thead>
             <tr align=center valign=middle id=TableTitle>
@@ -41,8 +34,8 @@
 				<td><s:a action="department_list?parentId=%{id}">${name}</s:a>&nbsp;</td>
 				<td>${parent.name}&nbsp;</td>
 				<td>${description}&nbsp;</td>
-				<td><s:a action="department_delete?id=%{id}" onClick="return window.confirm('这将删除所有的下级部门，您确定要删除吗？')" >删除</s:a>
-					<s:a action="department_editUI?id=%{id}">修改</s:a>
+				<td><s:a  action="department_delete?id=%{id}" onClick="return window.confirm('这将删除所有的下级部门，您确定要删除吗？')" ><button id="add" class="btn btn-primary btn-sm">删除</button></s:a>
+					<s:a action="department_editUI?id=%{id}"><button id="add" class="btn btn-primary btn-sm">修改</button></s:a>
 				</td>
 			</tr>
 			</s:iterator>
@@ -51,8 +44,8 @@
     <!-- 其他功能超链接 -->
     <div id="TableTail">
         <div id="TableTail_inside">
-            <s:a action ="department_addUI"><img src="${pageContext.request.contextPath}/style/images/createNew.png" /></s:a>
-       		<a href="javascript:history.go(-1)"><img src="${pageContext.request.contextPath}/style/blue/images/button/ReturnToPrevLevel.png" /></a>
+            <s:a action ="department_addUI"><button id="add" class="btn btn-primary btn-sm">新建</button></s:a>
+       		<a href="javascript:history.go(-1)"><button id="add" class="btn btn-primary btn-sm">返回上一级</button></a>
         </div>
     </div>
 </div>
@@ -63,5 +56,7 @@
 	2，点击部门名称，可以查看此部门相应的下级部门列表。<br />
 	3，删除部门时，同时删除此部门的所有下级部门。
 </div>
+<script>
+</script>
 </body>
 </html>

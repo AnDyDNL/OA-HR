@@ -1,48 +1,27 @@
 package com.itcast.hr.action;
-
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
+import com.itcast.hr.baseaction.BaseAction;
 import com.itcast.hr.entity.Department;
-import com.itcast.hr.service.IDepartmentService;
 import com.itcast.hr.util.MyUtil;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 @Controller
 @Scope("prototype")
-public class DepartmentAction extends ActionSupport implements
-		ModelDriven<Department> {
+public class DepartmentAction extends BaseAction<Department>{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Resource
-	private IDepartmentService iDepartmentService;
 	// 上级部门id
 	private Long parentId;
-
 	public Long getParentId() {
 		return parentId;
 	}
-
 	public void setParentId(Long parentId) {
 		this.parentId = parentId;
 	}
-
-	private Department model = new Department();
-
-	@Override
-	public Department getModel() {
-		// TODO Auto-generated method stub
-		return model;
-	}
-
 	/**
 	 * 列表界面
 	 * 
@@ -100,6 +79,7 @@ public class DepartmentAction extends ActionSupport implements
 	 * @return
 	 */
 	public String delete() {
+		System.out.println("*** delete...");
 		iDepartmentService.delete(model.getId());
 		return "toList";
 	}

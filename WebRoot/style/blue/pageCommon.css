@@ -4,7 +4,9 @@
 img{
 	border: none;
 }
-
+a{
+	padding-left: 15px;
+}
 A:link {
 	COLOR: #004779; TEXT-DECORATION: none
 }
@@ -174,17 +176,13 @@ ul {
 	border-top: 2px solid #a4cdec;
 	border-bottom: 2px solid #a4cdec;
 	width: 100%;
-	height: 30px;
+	height: 40px;
 	float: left;
 }
 
 #TableTail_inside {
-	border-top: 1px solid #ffffff;
-	border-bottom: 1px solid #ffffff;
-	width: 100%;
-	height: 25px;
-	float: left;
-	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#a4cdec,endcolorstr=#ffffff,gradientType=0);
+	border-top: 1px ;
+	border-bottom: 1px  ;
 	padding-left: 5px;
 	padding-top: 3px;
 }
