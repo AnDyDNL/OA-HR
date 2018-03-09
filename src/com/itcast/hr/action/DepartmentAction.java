@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.itcast.hr.baseaction.BaseAction;
 import com.itcast.hr.entity.Department;
-import com.itcast.hr.util.MyUtil;
+import com.itcast.hr.util.departmentTree;
 import com.opensymphony.xwork2.ActionContext;
 
 @Controller
@@ -50,7 +50,7 @@ public class DepartmentAction extends BaseAction<Department>{
 		// 准备数据 上级部门列表
 		List<Department> topDepartmentList = iDepartmentService.getTop();
 		// id name 传入到部门的下拉列表，只给这两个属性赋值
-		List<Department> departmentList = MyUtil
+		List<Department> departmentList = departmentTree
 				.getAllDepartment(topDepartmentList);
 		// 得到集合后放入值栈（map #获取）
 		ActionContext.getContext().put("departmentList", departmentList);
@@ -68,8 +68,11 @@ public class DepartmentAction extends BaseAction<Department>{
 		// role.setName(name);
 		// role.setDescription(description);
 		// 保存到数据库
-		model.setParent(iDepartmentService.getById(parentId));
-		iDepartmentService.save(model);
+		//插入一个不为空的对象
+		if(!model.getName().trim().equals("")){
+			model.setParent(iDepartmentService.getById(parentId));
+			iDepartmentService.save(model);
+		}
 		return "toList";
 	}
 
@@ -79,7 +82,6 @@ public class DepartmentAction extends BaseAction<Department>{
 	 * @return
 	 */
 	public String delete() {
-		System.out.println("*** delete...");
 		iDepartmentService.delete(model.getId());
 		return "toList";
 	}
@@ -93,7 +95,7 @@ public class DepartmentAction extends BaseAction<Department>{
 		// 准备数据 上级部门列表
 		List<Department> topDepartmentList = iDepartmentService.getTop();
 		// id name 传入到部门的下拉列表，只给这两个属性赋值
-		List<Department> departmentList = MyUtil.getAllDepartment(topDepartmentList);
+		List<Department> departmentList = departmentTree.getAllDepartment(topDepartmentList);
 		// 得到集合后放入值栈（map #获取）
 		ActionContext.getContext().put("departmentList", departmentList);
 		Department department = iDepartmentService.getById(model.getId());
@@ -114,13 +116,14 @@ public class DepartmentAction extends BaseAction<Department>{
 	 * @return
 	 */
 	public String edit() {
-		// 从数据库去除原对象
+		// 从数据库取出原对象
 		Department department = iDepartmentService.getById(model.getId());
 		department.setName(model.getName());
 		department.setDescription(model.getDescription());
 		// 获取parent
 		Department parent = iDepartmentService.getById(parentId);
 		department.setParent(parent);
+		//更新到数据库
 		iDepartmentService.update(department);
 		return "toList";
 	}

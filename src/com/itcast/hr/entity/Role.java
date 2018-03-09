@@ -5,12 +5,13 @@ public class Role {
 	private String name;
 	private String description;
 	private Set<User> users; //一个岗位对应多名员工
-	private Set<Privilege> prvilefge;//对应多个角色
+	private Set<Privilege> privilege;//对应多个角色
 	//-----------构造函数--------------
 	public Role() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Role(long id, String name, String description, Set<User> users) {
 		super();
 		this.id = id;
@@ -19,11 +20,11 @@ public class Role {
 		this.users = users;
 	}
 	//----------get set-------------
-	public void setPrvilefge(Set<Privilege> prvilefge) {
-		this.prvilefge = prvilefge;
+	public Set<Privilege> getPrivilege() {
+		return privilege;
 	}
-	public Set<Privilege> getPrvilefge() {
-		return prvilefge;
+	public void setPrivilege(Set<Privilege> privilege) {
+		this.privilege = privilege;
 	}
 	public long getId() {
 		return id;

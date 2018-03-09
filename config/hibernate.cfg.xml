@@ -16,5 +16,6 @@
 	<mapping resource="com/itcast/hr/entity/Role.hbm.xml" />
 	<mapping resource="com/itcast/hr/entity/Department.hbm.xml" />
 	<mapping resource="com/itcast/hr/entity/User.hbm.xml" />
+	<mapping resource="com/itcast/hr/entity/Privilege.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

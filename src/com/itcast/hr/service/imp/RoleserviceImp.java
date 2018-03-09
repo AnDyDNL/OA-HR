@@ -4,8 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.itcast.hr.basedao.imp.DaoSupportImp;
 import com.itcast.hr.entity.Role;
 import com.itcast.hr.service.IRoleService;
-@Service("roleService")
-@Transactional // 开启事务
+@Service("iRoleService")
 public class RoleserviceImp extends DaoSupportImp<Role> implements IRoleService {
 
 

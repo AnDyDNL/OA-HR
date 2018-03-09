@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import com.itcast.hr.entity.Department;
-public class MyUtil {
+public class departmentTree {
 	/**
 	 * 遍历部门树，把所有的部门遍历出来修改名字，以层次显示
 	 * @param topDepartmentList 所有的顶级部门（也就是所有的顶点）

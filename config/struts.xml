@@ -27,4 +27,13 @@
 		<result name="toList" type="redirectAction" >department_list</result>
 	</action>
 	</package>
+	<!-- 用户管理管理 -->
+	<package name="User" extends="struts-default">
+	<action name="user_*" class="userAction" method="{1}">
+		<result name="list">/WEB-INF/jsp/User/list.jsp</result>
+		<result name="saveUI">/WEB-INF/jsp/User/saveUI.jsp</result>
+		<!-- 重定向到User_list Action -->
+		<result name="toList" type="redirectAction" >user_list</result>
+	</action>
+	</package>
 </struts>

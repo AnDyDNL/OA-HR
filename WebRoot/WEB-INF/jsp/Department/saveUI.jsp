@@ -3,12 +3,7 @@
 <html>
 <head>
 	<title>HR-部门设置</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script language="javascript" src="${pageContext.request.contextPath}/script/jquery.js"></script>
-    <script language="javascript" src="${pageContext.request.contextPath}/script/pageCommon.js" charset="utf-8"></script>
-    <script language="javascript" src="${pageContext.request.contextPath}/script/PageUtils.js" charset="utf-8"></script>
-    <script language="javascript" taShowManager.js" charset="utf-8"></script>
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/pageCommon.css" />
+    <script language="javascript" "taShowManager.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -62,8 +57,8 @@
         
         <!-- 表单操作 -->
         <div id="InputDetailBar">
-            <input type="image" src="${pageContext.request.contextPath}/style/images/save.png"/>
-            <a href="javascript:history.go(-1);"><img src="${pageContext.request.contextPath}/style/images/goBack.png"/></a>
+            <input type="submit" class="btn btn-primary btn-sm" value="保存">
+            <a href="javascript:history.go(-1);"><button id="add" class="btn btn-primary btn-sm">返回</button></a>
         </div>
     </s:form>
 </div>

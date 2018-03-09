@@ -2,8 +2,11 @@ package com.itcast.hr.baseaction;
 import java.lang.reflect.ParameterizedType;
 
 import javax.annotation.Resource;
+
 import com.itcast.hr.service.IDepartmentService;
 import com.itcast.hr.service.IRoleService;
+import com.itcast.hr.service.IUserService;
+import com.itcast.hr.service.imp.UserServiceImp;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 //提供ModelDriver支持提供Service
@@ -33,7 +36,9 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	}
 //===============service====================
 	@Resource
-	protected IRoleService roleService;
+	protected IRoleService iRoleService;
 	@Resource
-	protected IDepartmentService iDepartmentService;
+	protected IDepartmentService iDepartmentService; 
+	@Resource
+	protected IUserService iUserService; 
 }

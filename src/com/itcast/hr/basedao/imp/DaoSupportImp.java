@@ -1,10 +1,16 @@
 package com.itcast.hr.basedao.imp;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.itcast.hr.basedao.DaoSupport;
+//子类也会开启事务
+@Transactional
 @SuppressWarnings("unchecked")
 public class DaoSupportImp<T> implements DaoSupport<T>{
 	@Resource

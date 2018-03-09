@@ -15,7 +15,7 @@ public class RoleAction extends BaseAction<Role>{
 	  * @return
 	  */
 	public String  list(){
-		List<Role> roleList =roleService.getAll();
+		List<Role> roleList =iRoleService.getAll();
 		//得到集合后放入值栈
 		ActionContext.getContext().put("roleList", roleList);
 		 return "list";
@@ -32,9 +32,10 @@ public class RoleAction extends BaseAction<Role>{
 	  * @return
 	  */
 	public String  add(){
-		//保存到对象
 		//保存到数据库
-		roleService.save(model);
+		if(!model.getName().trim().equals("")){
+			iRoleService.save(model);
+		}
 		return "toList";
 	 }
 	 /**
@@ -42,7 +43,7 @@ public class RoleAction extends BaseAction<Role>{
 	  * @return
 	  */
 	public String  delete(){
-		roleService.delete(model.getId());
+		iRoleService.delete(model.getId());
 		 return "toList";
 	 }
 	 /**
@@ -51,8 +52,8 @@ public class RoleAction extends BaseAction<Role>{
 	  */
 	public String  editUI(){
 	
-		Role role=roleService.getById(model.getId());
-		//放入值栈用于回显
+		Role role=iRoleService.getById(model.getId());
+		//放入栈顶用于回显
 		ActionContext.getContext().getValueStack().push(role);
 		return "saveUI";
 	 }
@@ -61,7 +62,7 @@ public class RoleAction extends BaseAction<Role>{
 	  * @return
 	  */
 	public String  edit(){
-		roleService.update(model);
+		iRoleService.update(model);
 		return "toList";
 	 }
 
